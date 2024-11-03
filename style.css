@@ -578,7 +578,7 @@ a.prev:hover, a.next:hover {
 
 .red-box {
   background-color: #f8d7da;
-  color: red;
+  color: #FF0000;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
