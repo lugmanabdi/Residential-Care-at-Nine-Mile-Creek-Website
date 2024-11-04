@@ -1624,4 +1624,64 @@ nav .fa-solid{
   }
 }
 
+/* Show hamburger and close icons only on smaller screens */
+.hamburger, .close-icon {
+  display: none;
+}
 
+@media (max-width: 768px) {
+  .hamburger, .close-icon {
+    display: block;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* Close Icon styling */
+  .close-icon {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 999;
+    color: #333;
+  }
+
+  /* Hide icons when toggled */
+  .hidden {
+    display: none;
+  }
+
+  /* Menu styling */
+  #sidemenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: 998;
+  }
+
+  /* Show menu when active */
+  #sidemenu.active {
+    right: 0;
+  }
+
+  /* Hamburger icon styling */
+  .hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 1000;
+  }
+}
