@@ -261,7 +261,7 @@ nav ul li a:hover::after{
 }
 
 /* Responsive Design for Mobile */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .testimonial-container {
     flex-direction: column;
   }
@@ -381,7 +381,7 @@ nav ul li a:hover::after{
 }
 
 /* Responsive Styling */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   #About-us h1 {
     font-size: 36px;
   }
@@ -614,7 +614,7 @@ a.prev:hover, a.next:hover {
 }
 
 /* Media Query for Mobile */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .sub-title {
     font-size: 30px; 
   }
@@ -823,7 +823,7 @@ a.prev:hover, a.next:hover {
 }
 
 /* Mobile Responsive Design */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .Services-list {
     grid-template-columns: 1fr; /* Stacks service items on smaller screens */
   }
@@ -933,7 +933,7 @@ a.prev:hover, a.next:hover {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   #Staff {
     padding: 60px 20px;
   }
@@ -1150,7 +1150,7 @@ footer {
 }
 
 /* Responsive Styling for Small Devices */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .footer-container {
       flex-direction: column;
       align-items: center;
@@ -1185,7 +1185,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   .footer-section ul li {
       display: block;
       margin: 5px 0;
@@ -1526,13 +1526,13 @@ nav .fa-solid{
 }
 
 /* Responsive Design */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .overview-item {
       width: 45%; /* Two items per row on tablets */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   .overview-item {
       width: 100%; /* Full width on mobile */
   }
@@ -1612,7 +1612,7 @@ nav .fa-solid{
 }
 
 /* Responsive Design */
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .commitment-content {
       flex-direction: column;
       align-items: center;
@@ -1629,14 +1629,14 @@ nav .fa-solid{
   display: none;
 }
 
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
   .hamburger, .close-icon {
     display: block;
   }
 }
 
 
-@media (max-width: 1000px) { {
+@media (max-width: 1000px) {
 
   /* Close Icon styling */
   .close-icon {
