@@ -12,9 +12,18 @@
     <!-- Navigation Section -->
     <header>
         <nav>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            
+            <!-- Close Icon (Initially hidden) -->
+            <div class="close-icon hidden" onclick="toggleMenu()">&times;</div>
+            
+            <!-- Logo -->
             <a href="index.html">
                 <img src="Images/logo2.png" class="logo" alt="Residential Care Logo">
             </a>
+            
+            <!-- Navigation Menu -->
             <ul id="sidemenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -318,7 +327,25 @@
       });
     });
     </script>
-
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("sidemenu");
+        const hamburger = document.querySelector(".hamburger");
+        const closeIcon = document.querySelector(".close-icon");
+    
+        // Toggle the menu visibility
+        menu.classList.toggle("active");
+    
+        // Show and hide icons based on the menu state
+        if (menu.classList.contains("active")) {
+            hamburger.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+        } else {
+            hamburger.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+        }
+    }
+</script>
     
 </body>
 </html>
