@@ -1,5 +1,0 @@
-﻿{
-  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
-  "Domain": "rescareninemile.com",
-  "Id": "c10799c5-e708-4713-842a-0e8f92bf8195"
-}
