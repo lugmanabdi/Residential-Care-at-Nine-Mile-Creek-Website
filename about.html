@@ -2,74 +2,975 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>About Us - Residential Care at Nine Mile Creek</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Images/logo2.png">
-    <script src="https://kit.fontawesome.com/1621c90b1a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Residential Care at Nine Mile Creek | Our Story & Mission</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn about Residential Care at Nine Mile Creek's mission to provide dignified, compassionate assisted living care in Bloomington, MN. Discover our story, values, and commitment to excellence.">
+    <meta name="keywords" content="about residential care, assisted living story, senior care mission, Bloomington MN care facility, nursing home about us">
+    <meta name="author" content="Residential Care at Nine Mile Creek">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="About Us - Residential Care at Nine Mile Creek">
+    <meta property="og:description" content="Discover our mission to provide dignified, compassionate care in a warm community setting">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rescareninemile.com/about.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Residential Care at Nine Mile Creek",
+        "description": "Learn about our mission, values, and commitment to providing exceptional assisted living care",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Residential Care at Nine Mile Creek",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10641 James Rd",
+                "addressLocality": "Bloomington",
+                "addressRegion": "MN",
+                "postalCode": "55431",
+                "addressCountry": "US"
+            }
+        }
+    }
+    </script>
+    
+    <link rel="shortcut icon" href="Images/logo1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-green: #228B22;
+            --accent-blue: #4682B4;
+            --cream: #F5F5DC;
+            --warm-white: #FEFEFE;
+            --text-dark: #2F2F2F;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --border-light: #E8E8E8;
+            --shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+            --shadow-hover: 0 8px 30px rgba(139, 69, 19, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-color) !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 20px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            font-size: 0.9rem !important;
+            transition: var(--transition) !important;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2) !important;
+            border: none !important;
+            display: inline-block !important;
+            white-space: nowrap !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--secondary-color) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-hover) !important;
+            color: white !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="rgba(139,69,19,0.03)" cx="20" cy="20" r="2"/><circle fill="rgba(139,69,19,0.03)" cx="80" cy="30" r="1.5"/><circle fill="rgba(139,69,19,0.03)" cx="40" cy="70" r="1"/><circle fill="rgba(139,69,19,0.03)" cx="70" cy="80" r="2.5"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 5%;
+            background: var(--warm-white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Mission & Values */
+        .mission-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .mission-card, .values-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before, .values-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .mission-card:hover::before, .values-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mission-card:hover, .values-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 69, 19, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .mission-card:hover .card-icon, .values-card:hover .card-icon {
+            background: var(--primary-color);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .mission-card:hover .card-icon i, .values-card:hover .card-icon i {
+            color: white;
+        }
+
+        .mission-card h3, .values-card h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .mission-card p, .values-card p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .values-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .values-list li:last-child {
+            border-bottom: none;
+        }
+
+        .values-list li:hover {
+            background: var(--cream);
+            padding-left: 1rem;
+            border-radius: 8px;
+        }
+
+        .values-list li i {
+            color: var(--accent-green);
+            font-size: 1rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--cream);
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 69, 19, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary-color);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon i {
+            color: white;
+        }
+
+        .feature-card h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Payment Options */
+        .payment-section {
+            padding: 5rem 5%;
+            background: var(--warm-white);
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .payment-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .payment-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+
+        .payment-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .payment-card h4 {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+
+        .payment-card p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 5%;
+            background: var(--primary-color);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-white:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-map iframe {
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .payment-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                display: block;
+            }
+
+            .nav-cta {
+                background: var(--primary-color) !important;
+                color: white !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 30px !important;
+                text-decoration: none !important;
+                font-weight: 500 !important;
+                transition: var(--transition) !important;
+                box-shadow: var(--shadow) !important;
+                border: none !important;
+                display: inline-block !important;
+                white-space: nowrap !important;
+                margin-top: 1rem !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .mission-values {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .mission-card, .values-card, .feature-card {
+                padding: 2rem;
+            }
+
+            .payment-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Section -->
-    <header>
+    <!-- Header -->
+    <header id="header">
         <nav>
-            <!-- Hamburger Icon -->
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            
-            <!-- Close Icon (Initially hidden) -->
-            <div class="close-icon hidden" onclick="toggleMenu()">&times;</div>
-            
-            <!-- Logo -->
             <a href="index.html">
-                <img src="Images/logo2.png" class="logo" alt="Residential Care Logo">
+                <img src="Images/logo2.png" class="logo" alt="Residential Care at Nine Mile Creek Logo">
             </a>
             
-            <!-- Navigation Menu -->
-            <ul id="sidemenu">
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
                 <li><a href="locations.html">Locations</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="staff.html">Staff Portal</a></li>
-                <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank">Careers</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank" class="nav-cta">Join Our Team</a></li>
             </ul>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <!-- About Us Section -->
-    <section id="About-us">
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>About Our Community</h1>
+            <p>Residential Care at Nine Mile Creek is dedicated to providing compassionate care and fostering meaningful connections in a warm, welcoming environment where residents can age with dignity.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
         <div class="container">
-            <h1>About Us</h1>
-            <div class="About-content">
-                <p>
-                    Residential Care at Nine Mile Creek (RC-NMC), is a comprehensive home care provider serving individuals 18 years of age and over. RC-NMC focuses on providing a space where our population can age with dignity in an inclusive, caring home environment.
-                </p>
-                <p>
-                    Our goal is to create a home where people can live comfortably and meaningfully-- and in a setting that honors their culture, religion, and identity.
-                </p>
-                <p>
-                    RC-NMC provides private rooms, internet access, central air, onsite laundry, and numerous accessibility features. Additionally, we provide assisted living and medical services, and have a registered nurse available at all times.
-                </p>
-                <p>
-                    Come in for an initial intake to learn more about how we can support you or your loved one(s). A healthcare professional will conduct a health analysis and work with you on creating a care plan that fits you or your loved ones' needs.
-                </p>
-                <p>
-                    We accept Minnesota Group Residential Housing payments and other subsidies for rent and food costs for qualified, low-income person(s). We also accept private pay/co-pay, long-term care insurance, and elderly waiver.
-                </p>
+            <!-- Mission & Values -->
+            <div class="mission-values fade-in">
+                <div class="mission-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To create a home where people can live comfortably and meaningfully in a setting that honors their individuality, culture, and personal beliefs. We are committed to providing exceptional care that promotes independence while ensuring safety, security, and peace of mind.</p>
+                    <p>Our goal is to foster an environment where residents feel valued, respected, and truly at home, surrounded by a community that cares about their wellbeing and happiness.</p>
+                </div>
+
+                <div class="values-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Our Core Values</h3>
+                    <p>These fundamental principles guide everything we do in our commitment to providing exceptional care:</p>
+                    <ul class="values-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Dignity & Respect:</strong> Every resident deserves to be treated with honor and compassion</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Cultural Inclusivity:</strong> Celebrating and honoring diverse backgrounds and traditions</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Person-Centered Care:</strong> Tailoring services to meet individual needs and preferences</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Family Partnership:</strong> Working closely with families to provide the best possible care</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Excellence:</strong> Continuously improving our services and maintaining high standards</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <a href="index.html">
-                <img src="Images/logo2.png" alt="RC-NMC Logo">
-            </a>
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What We Provide</h2>
+                <p>Our comprehensive facilities and services are designed to create a comfortable, safe, and enriching environment for all our residents.</p>
+            </div>
+
+            <div class="features-grid fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h4>Private Rooms</h4>
+                    <p>Comfortable, private living spaces that residents can personalize to feel truly at home.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h4>Internet Access</h4>
+                    <p>Stay connected with family and friends through reliable, high-speed internet throughout our facilities.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h4>Central Air</h4>
+                    <p>Climate-controlled environment ensuring comfort throughout all seasons of the year.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h4>Onsite Laundry</h4>
+                    <p>Convenient laundry facilities with professional care for all clothing and personal items.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h4>Accessibility Features</h4>
+                    <p>Comprehensive accessibility accommodations ensuring all residents can navigate comfortably.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h4>24/7 Nursing Care</h4>
+                    <p>Registered nurses available around the clock to provide medical support and peace of mind.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Nutritious Meals</h4>
+                    <p>Chef-prepared, balanced meals tailored to dietary needs and cultural preferences served daily.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Social Activities</h4>
+                    <p>Engaging recreational programs and social events designed to promote wellness and community connection.</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Payment Options -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Payment Options & Financial Support</h2>
+                <p>We believe quality care should be accessible to everyone. We offer multiple payment options and work with various programs to support our residents and their families.</p>
+            </div>
+
+            <div class="payment-grid fade-in">
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Minnesota Group Residential Housing</h4>
+                    <p>We accept GRH payments and other subsidies for rent and food costs for qualified, low-income individuals.</p>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h4>Private Pay & Co-Pay</h4>
+                    <p>Flexible private payment options with transparent pricing and personalized payment plans available.</p>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Long-Term Care Insurance</h4>
+                    <p>We work with most long-term care insurance providers to help maximize your benefits and coverage.</p>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Elderly Waiver Program</h4>
+                    <p>Accepting elderly waiver programs to help eligible residents access the care they need.</p>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h4>CADI Waiver</h4>
+                    <p>We accept Community Alternative for Disabled Individuals (CADI) waiver to support those with disabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Learn More?</h2>
+                <p>Schedule a consultation to discover how we can support you or your loved ones with personalized care that meets your unique needs and preferences.</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i>
+                        Schedule a Consultation
+                    </a>
+                    <a href="tel:+16124387378" class="btn-outline">
+                        <i class="fas fa-phone"></i>
+                        Call (612) 438-7378
+                    </a>
+                    <a href="tel:+16129782238" class="btn-outline">
+                        <i class="fas fa-phone"></i>
+                        Call (612) 978-2238
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html">
+                    <img src="Images/logo2.png" alt="RC-NMC Logo" style="height: 100px; margin-bottom: 1rem;">
+                </a>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">
+                    Providing compassionate, dignified care and a warm community environment for seniors in Bloomington and Richfield, Minnesota.
+                </p>
+            </div>
+            
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -77,49 +978,193 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="locations.html">Locations</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="staff.html">Staff Portal</a></li>
                     <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank">Careers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fa-regular fa-envelope"></i> <a href="mailto:rescareninemile@gmail.com" class="contact-link">rescareninemile@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+16129782238" class="contact-link">(612) 978-2238</a></p>
-                <p><i class="fa-solid fa-location-dot"></i> 10641 James Rd, Bloomington MN</p>
+                <h3>Contact Information</h3>
+                <p style="margin-bottom: 1rem;">
+                    <i class="fa-regular fa-envelope" style="margin-right: 0.5rem; color: var(--secondary-color);"></i>
+                    <a href="mailto:info@rescareninemile.com">info@rescareninemile.com</a>
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <i class="fa-solid fa-phone" style="margin-right: 0.5rem; color: var(--secondary-color);"></i>
+                    <a href="tel:+16124387378">(612) 438-7378</a> | 
+                    <a href="tel:+16129782238">(612) 978-2238</a>
+                </p>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                        <i class="fa-solid fa-location-dot" style="margin-right: 0.5rem; color: var(--secondary-color); margin-top: 0.2rem;"></i>
+                        <div>
+                            <strong style="color: var(--secondary-color);">Our Locations:</strong>
+                        </div>
+                    </div>
+                    <div style="margin-left: 1.2rem; color: rgba(255, 255, 255, 0.8); line-height: 1.4;">
+                        <div style="margin-bottom: 0.3rem;">
+                            <strong>Bloomington:</strong> 10641 James Rd, Bloomington MN 55431
+                        </div>
+                        <div style="margin-bottom: 0.3rem;">
+                            <strong>13th Avenue:</strong> 7421 13th Ave South, Richfield MN
+                        </div>
+                        <div>
+                            <strong>Portland Avenue:</strong> 6520 Portland Ave South, Richfield MN
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7398434223226!2d-93.30911072336078!3d44.82313692396102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b3319e7ba11a4d%3A0x3c8583be47a54782!2s10641%20James%20Rd%2C%20Bloomington%2C%20MN%2055431%2C%20USA!5e0!3m2!1sen!2sus!4v1698847925634!5m2!1sen!2sus"
+                        loading="lazy"
+                        allowfullscreen
+                        title="Residential Care at Nine Mile Creek Location">
+                    </iframe>
+                </div>
             </div>
         </div>
-        <div class="footer-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7398434223226!2d-93.30911072336078!3d44.82313692396102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b3319e7ba11a4d%3A0x3c8583be47a54782!2s10641%20James%20Rd%2C%20Bloomington%2C%20MN%2055431%2C%20USA!5e0!3m2!1sen!2sus!4v1698847925634!5m2!1sen!2sus"
-                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Residential Care at Nine Mile Creek | All Rights Reserved | Designed and Managed by Horizons Web Designs</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Residential Care at Nine Mile Creek | All Rights Reserved | Designed and Managed by Horizons Web Designs</p>
-    </div>
-</footer>
+    </footer>
 
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("sidemenu");
-        const hamburger = document.querySelector(".hamburger");
-        const closeIcon = document.querySelector(".close-icon");
-    
-        // Toggle the menu visibility
-        menu.classList.toggle("active");
-    
-        // Show and hide icons based on the menu state
-        if (menu.classList.contains("active")) {
-            hamburger.classList.add("hidden");
-            closeIcon.classList.remove("hidden");
-        } else {
-            hamburger.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenu && navMenu) {
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                    mobileMenu.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                    mobileMenu.querySelector('i').classList.add('fa-bars');
+                }
+            });
         }
-    }
-    </script>
 
+        // Card interactions
+        document.querySelectorAll('.mission-card, .values-card, .feature-card, .payment-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Values list interactions
+        document.querySelectorAll('.values-list li').forEach(item => {
+            item.addEventListener('click', function() {
+                // Add a subtle highlight effect when clicked
+                this.style.background = 'var(--primary-color)';
+                this.style.color = 'white';
+                this.style.borderRadius = '8px';
+                this.style.paddingLeft = '1rem';
+                
+                setTimeout(() => {
+                    this.style.background = '';
+                    this.style.color = '';
+                    this.style.borderRadius = '';
+                    this.style.paddingLeft = '';
+                }, 300);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced accessibility: keyboard navigation
+        document.querySelectorAll('.mission-card, .values-card, .feature-card, .payment-card').forEach(element => {
+            element.setAttribute('tabindex', '0');
+            
+            element.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Staggered animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            const paymentCards = document.querySelectorAll('.payment-card');
+            paymentCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>
