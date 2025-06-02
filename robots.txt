@@ -1,0 +1,48 @@
+# robots.txt for Residential Care at Nine Mile Creek
+# https://rescareninemile.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Allow indexing of main pages
+Allow: /index.html
+Allow: /about.html
+Allow: /locations.html
+Allow: /services.html
+Allow: /contact.html
+
+# Allow access to images and assets
+Allow: /Images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Disallow any admin or private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow common unwanted files
+Disallow: *.tmp
+Disallow: *.log
+Disallow: /cgi-bin/
+
+# Block specific bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location (update with your actual sitemap URL when created)
+Sitemap: https://rescareninemile.com/sitemap.xml
+
+# Crawl-delay for all bots (optional - helps prevent server overload)
+Crawl-delay: 1
