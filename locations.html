@@ -2,232 +2,1102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Locations - Residential Care at Nine Mile Creek</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Images/logo2.png">
-    <script src="https://kit.fontawesome.com/1621c90b1a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Locations - Residential Care at Nine Mile Creek | Bloomington & Richfield, MN</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover our three beautiful assisted living locations in Bloomington and Richfield, Minnesota. Tour our facilities and find the perfect home for your loved one.">
+    <meta name="keywords" content="assisted living locations, Bloomington MN, Richfield MN, senior housing, residential care facilities, Nine Mile Creek">
+    <meta name="author" content="Residential Care at Nine Mile Creek">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Our Locations - Residential Care at Nine Mile Creek">
+    <meta property="og:description" content="Three beautiful assisted living locations in Bloomington and Richfield, Minnesota">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rescareninemile.com/locations.html">
+    
+    <!-- Geographic Meta Tags -->
+    <meta name="geo.region" content="US-MN">
+    <meta name="geo.placename" content="Bloomington, Richfield">
+    <meta name="ICBM" content="44.82313692396102, -93.30911072336078">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Residential Care at Nine Mile Creek",
+        "url": "https://rescareninemile.com/locations.html",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Assisted Living Locations",
+            "itemListElement": [
+                {
+                    "@type": "Place",
+                    "name": "13th Avenue Location",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "7421 13th Ave South",
+                        "addressLocality": "Richfield",
+                        "addressRegion": "MN"
+                    }
+                },
+                {
+                    "@type": "Place",  
+                    "name": "Portland Avenue Location",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "6520 Portland Ave South",
+                        "addressLocality": "Richfield",
+                        "addressRegion": "MN"
+                    }
+                },
+                {
+                    "@type": "Place",
+                    "name": "Bloomington Location",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "10641 James Rd",
+                        "addressLocality": "Bloomington",
+                        "addressRegion": "MN",
+                        "postalCode": "55431"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <link rel="shortcut icon" href="Images/logo1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-green: #228B22;
+            --accent-blue: #4682B4;
+            --cream: #F5F5DC;
+            --warm-white: #FEFEFE;
+            --text-dark: #2F2F2F;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --border-light: #E8E8E8;
+            --shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+            --shadow-hover: 0 8px 30px rgba(139, 69, 19, 0.15);
+            --transition: all 0.3s ease;
+            --success-color: #28a745;
+            --warning-color: #dc3545;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-color) !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 20px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            font-size: 0.9rem !important;
+            transition: var(--transition) !important;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2) !important;
+            border: none !important;
+            display: inline-block !important;
+            white-space: nowrap !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--secondary-color) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-hover) !important;
+            color: white !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="rgba(139,69,19,0.03)" cx="20" cy="20" r="2"/><circle fill="rgba(139,69,19,0.03)" cx="80" cy="30" r="1.5"/><circle fill="rgba(139,69,19,0.03)" cx="40" cy="70" r="1"/><circle fill="rgba(139,69,19,0.03)" cx="70" cy="80" r="2.5"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Locations Section */
+        .locations-section {
+            padding: 5rem 5%;
+            background: var(--warm-white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Location Images */
+        .location-preview {
+            position: sticky;
+            top: 8rem;
+        }
+
+        .preview-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .preview-images img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .preview-images img:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+
+        .preview-images img:first-child {
+            grid-column: 1 / -1;
+            height: 200px;
+        }
+
+        /* Location Tabs */
+        .location-tabs {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-navigation {
+            display: flex;
+            background: var(--cream);
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-button:hover:not(.active) {
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .location-info h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .location-address {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vacancy-status {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .vacancy-available {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success-color);
+            border: 2px solid var(--success-color);
+        }
+
+        .vacancy-full {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--warning-color);
+            border: 2px solid var(--warning-color);
+        }
+
+        .location-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .slide-nav:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        .slide-counter {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Location Features */
+        .location-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 5%;
+            background: var(--primary-color);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-white:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-map iframe {
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                display: block;
+            }
+
+            .nav-cta {
+                background: var(--primary-color) !important;
+                color: white !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 30px !important;
+                text-decoration: none !important;
+                font-weight: 500 !important;
+                transition: var(--transition) !important;
+                box-shadow: var(--shadow) !important;
+                border: none !important;
+                display: inline-block !important;
+                white-space: nowrap !important;
+                margin-top: 1rem !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .location-preview {
+                position: static;
+            }
+
+            .preview-images {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-images img:first-child {
+                grid-column: 1;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .location-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .slide img {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Section -->
-    <header>
+    <!-- Header -->
+    <header id="header">
         <nav>
-            <!-- Hamburger Icon -->
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            
-            <!-- Close Icon (Initially hidden) -->
-            <div class="close-icon hidden" onclick="toggleMenu()">&times;</div>
-            
-            <!-- Logo -->
             <a href="index.html">
-                <img src="Images/logo2.png" class="logo" alt="Residential Care Logo">
+                <img src="Images/logo2.png" class="logo" alt="Residential Care at Nine Mile Creek Logo">
             </a>
             
-            <!-- Navigation Menu -->
-            <ul id="sidemenu">
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="locations.html">Locations</a></li>
+                <li><a href="locations.html" class="active">Locations</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="staff.html">Staff Portal</a></li>
-                <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank">Careers</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank" class="nav-cta">Join Our Team</a></li>
             </ul>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <!-- Locations Section -->
-    
-<div id="Locations">
-    <div class="container">
-        <div class="row">
-            <div class="Locations-col-1">
-                <img src="Images/background1.png">
-                <img src="Images/background2.png">
-                <img src="Images/background3.png">
-            </div>
-            <div class="Locations-col-2">
-                <h1 class="sub-title">Locations</h1>
-                <br><br>
-                <p>We are currently operating in three locations within the Richfield-Bloomington area. Click the tabs below to see photos and more information.</p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Our Locations</h1>
+            <p>We are proud to operate three beautiful facilities in the Richfield-Bloomington area. Each location offers a unique setting with thoughtful amenities designed to provide comfort, safety, and a true sense of home for our residents.</p>
+        </div>
+    </section>
 
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('13th')">13th</p>
-                    <p class="tab-links" onclick="opentab('Portland')">Portland</p>
-                    <p class="tab-links" onclick="opentab('Bloomington')">Bloomington</p>
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <div class="container">
+            <div class="locations-grid">
+                <!-- Location Preview Images -->
+                <div class="location-preview">
+                    <div class="preview-images" id="preview-images">
+                        <img src="Images/background1.png" alt="13th Avenue Location" onclick="switchToTab('13th')">
+                        <img src="Images/background2.png" alt="Portland Avenue Location" onclick="switchToTab('Portland')">
+                        <img src="Images/background3.png" alt="Bloomington Location" onclick="switchToTab('Bloomington')">
+                    </div>
                 </div>
 
-                <div class="tab-contents active-tab" id="13th">
-                  <p><strong>7421 13th Ave South, Richfield, MN</strong></p>
-                  <br>
-                  <p>This location is nestled in a quiet neighborhood with a scenic backyard overlooking a beautiful lake. The tranquil environment is perfect for relaxation and well-being, complemented by numerous amenities for resident's comfort and enjoyment.</p>
-                  <br>
-                  <p>Click through the images below to see more:</p>
-                  <br>
-                  <div class="slideshow-container">
-                      <div class="mySlides fade">
-                          <img src="Images/13th/1.png" alt="Image 1" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/2.png" alt="Image 2" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/3.png" alt="Image 3" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/4.png" alt="Image 4" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/5.png" alt="Image 5" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/6.png" alt="Image 6" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/7.png" alt="Image 7" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/8.png" alt="Image 8" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/9.png" alt="Image 9" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/10.png" alt="Image 10" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/11.png" alt="Image 11" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/12.png" alt="Image 12" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/13.png" alt="Image 13" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/14.png" alt="Image 14" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/15.png" alt="Image 15" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/17.png" alt="Image 17" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/18.png" alt="Image 18" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/13th/19.png" alt="Image 19" style="width:100%">
-                      </div>
-              
-                      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                  </div>
-                  <div class="vacancy-status green-box">Vacancy available</div>
-
-                </div>  
-              
-                <div class="tab-contents" id="Portland">
-                  <p><strong>6520 Portland Ave South, Richfield, MN</strong></p> 
-                  <br>
-                  <p>Our Portland Ave location offers convenient access to bus stations for easy transportation. It is adjacent to Veteran's Park, providing serene outdoor spaces for residents to enjoy. A range of amenities is available to enhance resident's quality of life.</p>
-                  <br>
-                  <p>Click through the images below to see more:</p>
-                  <br>
-                  <div class="slideshow-container">
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/1.png" alt="Portland Location 1" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/2.png" alt="Portland Location 2" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/3.png" alt="Portland Location 3" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/4.png" alt="Portland Location 4" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/5.png" alt="Portland Location 5" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Portland/6.png" alt="Portland Location 6" style="width:100%">
-                      </div>
-              
-                      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                  </div>
-                  <div class="vacancy-status red-box">No vacancy available</div>
-
-                </div>  
-              
-                <div class="tab-contents" id="Bloomington">
-                  <p><strong>10641 James Rd, Bloomington MN 55431</strong></p>
-                  <br>
-                  <p>With a cozy fireplace, a spacious deck, patio, and covered porch, this home is designed for relaxation and outdoor enjoyment. Nestled on a corner lot in a quiet cul-de-sac, the location boasts an excellent location, directly across from Nine Mile Creek and walking paths. Close to Moir & Central Park, Minnesota River Bluffs, shopping, restaurants, and more, it's an ideal resting home in a serene neighborhood.</p>
-                  <br>
-                  <p>Click through the images below to see more:</p>
-                  <br>
-                  <div class="slideshow-container">
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/1.png" alt="Bloomington Location 1" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/basement.jpg" alt="Bloomington Location 2" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/bedroom.jpg" alt="Bloomington Location 3" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/basement2.jpg" alt="Bloomington Location 4" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/5.png" alt="Bloomington Location 5" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/6.png" alt="Bloomington Location 6" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/IMG_0371.jpg" alt="Bloomington Location 7" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/IMG_0372.jpg" alt="Bloomington Location 8" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/bathroom.jpg" alt="Bloomington Location 10" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/IMG_0456.png" alt="Bloomington Location 11" style="width:100%">
-                      </div>
-                      <div class="mySlides fade">
-                          <img src="Images/Bloomington/basement3.jpg" alt="Bloomington Location 12" style="width:100%">
-                      </div>
-                      
-              
-                      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <!-- Location Details -->
+                <div class="location-tabs">
+                    <!-- Tab Navigation -->
+                    <div class="tab-navigation">
+                        <button class="tab-button active" onclick="openTab('13th')" data-tab="13th">
+                            13th Avenue
+                        </button>
+                        <button class="tab-button" onclick="openTab('Portland')" data-tab="Portland">
+                            Portland Avenue
+                        </button>
+                        <button class="tab-button" onclick="openTab('Bloomington')" data-tab="Bloomington">
+                            Bloomington
+                        </button>
                     </div>
-                    <div class="vacancy-status green-box">Vacancy available</div>
 
-                  </div>
-              
-              
+                    <!-- 13th Avenue Tab -->
+                    <div class="tab-content active" id="13th">
+                        <div class="location-header">
+                            <div class="location-info">
+                                <h2>13th Avenue Location</h2>
+                                <div class="location-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    7421 13th Ave South, Richfield, MN
+                                </div>
+                            </div>
+                            <div class="vacancy-status vacancy-available">
+                                <i class="fas fa-check-circle"></i>
+                                Vacancy Available
+                            </div>
+                        </div>
+
+                        <p class="location-description">
+                            This location is nestled in a quiet neighborhood with a scenic backyard overlooking a beautiful lake. The tranquil environment is perfect for relaxation and well-being, complemented by numerous amenities for resident comfort and enjoyment.
+                        </p>
+
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="Images/13th/1.png" alt="13th Avenue Location - Interior View">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/2.png" alt="13th Avenue Location - Living Room">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/3.png" alt="13th Avenue Location - Kitchen">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/4.png" alt="13th Avenue Location - Dining Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/5.png" alt="13th Avenue Location - Bedroom">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/6.png" alt="13th Avenue Location - Bathroom">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/7.png" alt="13th Avenue Location - Common Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/8.png" alt="13th Avenue Location - Outdoor Space">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/9.png" alt="13th Avenue Location - Lake View">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/10.png" alt="13th Avenue Location - Garden">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/11.png" alt="13th Avenue Location - Recreation Room">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/12.png" alt="13th Avenue Location - Hallway">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/13.png" alt="13th Avenue Location - Exterior">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/14.png" alt="13th Avenue Location - Patio">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/15.png" alt="13th Avenue Location - Backyard">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/17.png" alt="13th Avenue Location - Amenities">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/18.png" alt="13th Avenue Location - Facilities">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/13th/19.png" alt="13th Avenue Location - Care Area">
+                            </div>
+
+                            <button class="slide-nav prev" onclick="changeSlide(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slide-nav next" onclick="changeSlide(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <div class="slide-counter">
+                                <span id="current-slide">1</span> / <span id="total-slides">18</span>
+                            </div>
+                        </div>
+
+                        <div class="location-features">
+                            <div class="feature-card">
+                                <i class="fas fa-water"></i>
+                                <h4>Lake Views</h4>
+                                <p>Scenic backyard overlooking beautiful lake</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-leaf"></i>
+                                <h4>Tranquil Setting</h4>
+                                <p>Quiet neighborhood perfect for relaxation</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-home"></i>
+                                <h4>Modern Amenities</h4>
+                                <p>Comprehensive facilities for comfort</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portland Avenue Tab -->
+                    <div class="tab-content" id="Portland">
+                        <div class="location-header">
+                            <div class="location-info">
+                                <h2>Portland Avenue Location</h2>
+                                <div class="location-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    6520 Portland Ave South, Richfield, MN
+                                </div>
+                            </div>
+                            <div class="vacancy-status vacancy-full">
+                                <i class="fas fa-times-circle"></i>
+                                No Vacancy Available
+                            </div>
+                        </div>
+
+                        <p class="location-description">
+                            Our Portland Ave location offers convenient access to bus stations for easy transportation. It is adjacent to Veteran's Park, providing serene outdoor spaces for residents to enjoy. A range of amenities is available to enhance residents' quality of life.
+                        </p>
+
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="Images/Portland/1.png" alt="Portland Avenue Location - Main Entrance">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Portland/2.png" alt="Portland Avenue Location - Living Space">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Portland/3.png" alt="Portland Avenue Location - Common Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Portland/4.png" alt="Portland Avenue Location - Kitchen">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Portland/5.png" alt="Portland Avenue Location - Bedroom">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Portland/6.png" alt="Portland Avenue Location - Outdoor Area">
+                            </div>
+
+                            <button class="slide-nav prev" onclick="changeSlide(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slide-nav next" onclick="changeSlide(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <div class="slide-counter">
+                                <span id="current-slide-portland">1</span> / <span id="total-slides-portland">6</span>
+                            </div>
+                        </div>
+
+                        <div class="location-features">
+                            <div class="feature-card">
+                                <i class="fas fa-bus"></i>
+                                <h4>Transit Access</h4>
+                                <p>Convenient access to bus stations</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-tree"></i>
+                                <h4>Veteran's Park</h4>
+                                <p>Adjacent to serene outdoor spaces</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-heart"></i>
+                                <h4>Quality Care</h4>
+                                <p>Enhanced amenities for better living</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloomington Tab -->
+                    <div class="tab-content" id="Bloomington">
+                        <div class="location-header">
+                            <div class="location-info">
+                                <h2>Bloomington Location</h2>
+                                <div class="location-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    10641 James Rd, Bloomington, MN 55431
+                                </div>
+                            </div>
+                            <div class="vacancy-status vacancy-available">
+                                <i class="fas fa-check-circle"></i>
+                                Vacancy Available
+                            </div>
+                        </div>
+
+                        <p class="location-description">
+                            With a cozy fireplace, spacious deck, patio, and covered porch, this home is designed for relaxation and outdoor enjoyment. Nestled on a corner lot in a quiet cul-de-sac, it boasts an excellent location directly across from Nine Mile Creek and walking paths. Close to Moir & Central Park, Minnesota River Bluffs, shopping, restaurants, and more—it's an ideal resting home in a serene neighborhood.
+                        </p>
+
+                        <div class="slideshow-container">
+                            <div class="slide active">
+                                <img src="Images/Bloomington/1.png" alt="Bloomington Location - Main View">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/basement.jpg" alt="Bloomington Location - Basement Recreation Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/bedroom.jpg" alt="Bloomington Location - Bedroom">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/basement2.jpg" alt="Bloomington Location - Basement Living Space">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/5.png" alt="Bloomington Location - Kitchen Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/6.png" alt="Bloomington Location - Dining Room">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/IMG_0371.jpg" alt="Bloomington Location - Living Room">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/IMG_0372.jpg" alt="Bloomington Location - Common Area">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/bathroom.jpg" alt="Bloomington Location - Bathroom">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/IMG_0456.png" alt="Bloomington Location - Outdoor Space">
+                            </div>
+                            <div class="slide">
+                                <img src="Images/Bloomington/basement3.jpg" alt="Bloomington Location - Basement Amenities">
+                            </div>
+
+                            <button class="slide-nav prev" onclick="changeSlide(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slide-nav next" onclick="changeSlide(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <div class="slide-counter">
+                                <span id="current-slide-bloomington">1</span> / <span id="total-slides-bloomington">11</span>
+                            </div>
+                        </div>
+
+                        <div class="location-features">
+                            <div class="feature-card">
+                                <i class="fas fa-walking"></i>
+                                <h4>Nine Mile Creek</h4>
+                                <p>Direct access to walking paths</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-home"></i>
+                                <h4>Corner Lot Privacy</h4>
+                                <p>Quiet cul-de-sac location</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h4>Convenient Location</h4>
+                                <p>Close to shopping and dining</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-
-    <!-- Footer Section -->
-    <!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <a href="index.html">
-                <img src="Images/logo2.png" alt="RC-NMC Logo">
-            </a>
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Visit Our Locations?</h2>
+                <p>Schedule a personal tour to see our beautiful facilities firsthand and discover which location would be the perfect home for your loved one.</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i>
+                        Schedule a Tour
+                    </a>
+                    <a href="tel:+16124387378" class="btn-outline">
+                        <i class="fas fa-phone-alt"></i>
+                        Call (612) 438-7378
+                    </a>
+                    <a href="tel:+16129782238" class="btn-outline">
+                        <i class="fas fa-phone-alt"></i>
+                        Call (612) 978-2238
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html">
+                    <img src="Images/logo2.png" alt="RC-NMC Logo" style="height: 100px; margin-bottom: 1rem;">
+                </a>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">
+                    Providing compassionate, dignified care and a warm community environment for seniors in Bloomington and Richfield, Minnesota.
+                </p>
+            </div>
+            
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -235,117 +1105,262 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="locations.html">Locations</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="staff.html">Staff Portal</a></li>
                     <li><a href="https://forms.gle/eBKE8Ddvm5nSzNCS9" target="_blank">Careers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fa-regular fa-envelope"></i> <a href="mailto:rescareninemile@gmail.com" class="contact-link">rescareninemile@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+16129782238" class="contact-link">(612) 978-2238</a></p>
-                <p><i class="fa-solid fa-location-dot"></i> 10641 James Rd, Bloomington MN</p>
+                <h3>Contact Information</h3>
+                <p style="margin-bottom: 1rem;">
+                    <i class="fa-regular fa-envelope" style="margin-right: 0.5rem; color: var(--secondary-color);"></i>
+                    <a href="mailto:info@rescareninemile.com">info@rescareninemile.com</a>
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <i class="fa-solid fa-phone" style="margin-right: 0.5rem; color: var(--secondary-color);"></i>
+                    <a href="tel:+16124387378">(612) 438-7378</a> | 
+                    <a href="tel:+16129782238">(612) 978-2238</a>
+                </p>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                        <i class="fa-solid fa-location-dot" style="margin-right: 0.5rem; color: var(--secondary-color); margin-top: 0.2rem;"></i>
+                        <div>
+                            <strong style="color: var(--secondary-color);">Our Locations:</strong>
+                        </div>
+                    </div>
+                    <div style="margin-left: 1.2rem; color: rgba(255, 255, 255, 0.8); line-height: 1.4;">
+                        <div style="margin-bottom: 0.3rem;">
+                            <strong>Bloomington:</strong> 10641 James Rd, Bloomington MN 55431
+                        </div>
+                        <div style="margin-bottom: 0.3rem;">
+                            <strong>13th Avenue:</strong> 7421 13th Ave South, Richfield MN
+                        </div>
+                        <div>
+                            <strong>Portland Avenue:</strong> 6520 Portland Ave South, Richfield MN
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7398434223226!2d-93.30911072336078!3d44.82313692396102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b3319e7ba11a4d%3A0x3c8583be47a54782!2s10641%20James%20Rd%2C%20Bloomington%2C%20MN%2055431%2C%20USA!5e0!3m2!1sen!2sus!4v1698847925634!5m2!1sen!2sus"
+                        loading="lazy"
+                        allowfullscreen
+                        title="Residential Care at Nine Mile Creek - Bloomington Location">
+                    </iframe>
+                </div>
             </div>
         </div>
-        <div class="footer-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7398434223226!2d-93.30911072336078!3d44.82313692396102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b3319e7ba11a4d%3A0x3c8583be47a54782!2s10641%20James%20Rd%2C%20Bloomington%2C%20MN%2055431%2C%20USA!5e0!3m2!1sen!2sus!4v1698847925634!5m2!1sen!2sus"
-                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Residential Care at Nine Mile Creek | All Rights Reserved | Designed and Managed by Horizons Web Designs</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Residential Care at Nine Mile Creek | All Rights Reserved | Designed and Managed by Horizons Web Designs</p>
-    </div>
-</footer>
+    </footer>
 
-
-    <!-- JavaScript for Tabs and Slideshow -->
     <script>
-        function opentab(tabName) {
-            let i;
-            let tabContents = document.getElementsByClassName('tab-contents');
-            let tabLinks = document.getElementsByClassName('tab-links');
-
-            for (i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove('active-tab');
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-
-            for (i = 0; i < tabLinks.length; i++) {
-                tabLinks[i].classList.remove('active-link');
-            }
-
-            document.getElementById(tabName).classList.add('active-tab');
-            event.currentTarget.classList.add('active-link');
-
-            slideIndex = 1;
-            showSlides(slideIndex);
-        }
-
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.querySelectorAll('.active-tab .mySlides');
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slides[slideIndex-1].style.display = "block";  
-        }
-    </script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabLinks = document.querySelectorAll(".tab-links");
-      const underline = document.createElement("div");
-      underline.classList.add("tab-underline");
-      document.querySelector(".tab-titles").appendChild(underline);
-    
-      function updateUnderline(activeLink) {
-        const rect = activeLink.getBoundingClientRect();
-        const containerRect = activeLink.parentNode.getBoundingClientRect();
-        underline.style.width = `${rect.width}px`;
-        underline.style.left = `${rect.left - containerRect.left}px`;
-      }
-    
-      tabLinks.forEach((link) => {
-        link.addEventListener("click", function () {
-          tabLinks.forEach((l) => l.classList.remove("active-link"));
-          link.classList.add("active-link");
-          updateUnderline(link);
         });
-        if (link.classList.contains("active-link")) {
-          updateUnderline(link);
+
+        // Tab Management
+        let currentTab = '13th';
+        let slideIndexes = {
+            '13th': 0,
+            'Portland': 0,
+            'Bloomington': 0
+        };
+
+        const slideCounts = {
+            '13th': 18,
+            'Portland': 6,
+            'Bloomington': 11
+        };
+
+        function openTab(tabName) {
+            // Remove active classes
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Add active classes
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+            // Update current tab
+            currentTab = tabName;
+
+            // Update slideshow
+            showSlide(slideIndexes[tabName]);
+            updateSlideCounter();
         }
-      });
-    });
+
+        function switchToTab(tabName) {
+            openTab(tabName);
+        }
+
+        function changeSlide(direction) {
+            slideIndexes[currentTab] += direction;
+            
+            const maxSlides = slideCounts[currentTab];
+            if (slideIndexes[currentTab] >= maxSlides) {
+                slideIndexes[currentTab] = 0;
+            } else if (slideIndexes[currentTab] < 0) {
+                slideIndexes[currentTab] = maxSlides - 1;
+            }
+            
+            showSlide(slideIndexes[currentTab]);
+            updateSlideCounter();
+        }
+
+        function showSlide(index) {
+            const activeTab = document.querySelector('.tab-content.active');
+            const slides = activeTab.querySelectorAll('.slide');
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+        }
+
+        function updateSlideCounter() {
+            const activeTab = document.querySelector('.tab-content.active');
+            const slideCounterElements = activeTab.querySelectorAll('.slide-counter span');
+            
+            if (slideCounterElements.length >= 2) {
+                slideCounterElements[0].textContent = slideIndexes[currentTab] + 1;
+                slideCounterElements[1].textContent = slideCounts[currentTab];
+            }
+        }
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenu && navMenu) {
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+
+        // Add mobile menu styles
+        const mobileStyles = document.createElement('style');
+        mobileStyles.textContent = `
+            @media (max-width: 768px) {
+                .nav-menu {
+                    position: fixed;
+                    top: 80px;
+                    right: -100%;
+                    width: 100%;
+                    height: calc(100vh - 80px);
+                    background: rgba(255, 255, 255, 0.98);
+                    backdrop-filter: blur(10px);
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 2rem;
+                    transition: right 0.3s ease;
+                    box-shadow: var(--shadow);
+                }
+
+                .nav-menu.active {
+                    right: 0;
+                }
+
+                .nav-menu li {
+                    margin: 1rem 0;
+                }
+
+                .nav-menu a {
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                    display: block;
+                }
+
+                .nav-cta {
+                    margin-top: 2rem;
+                    display: inline-block;
+                    text-align: center;
+                    background: var(--primary-color) !important;
+                    color: white !important;
+                }
+            }
+        `;
+        document.head.appendChild(mobileStyles);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlideCounter();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Keyboard navigation for slideshow
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Touch/swipe support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                changeSlide(1); // Swipe left - next slide
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                changeSlide(-1); // Swipe right - previous slide
+            }
+        }
+
+        // Pause auto-play on hover (if enabled)
+        const slideshowContainers = document.querySelectorAll('.slideshow-container');
+        slideshowContainers.forEach(container => {
+            container.addEventListener('mouseenter', function() {
+                // Pause auto-play logic here if implemented
+            });
+            
+            container.addEventListener('mouseleave', function() {
+                // Resume auto-play logic here if implemented
+            });
+        });
     </script>
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("sidemenu");
-        const hamburger = document.querySelector(".hamburger");
-        const closeIcon = document.querySelector(".close-icon");
-    
-        // Toggle the menu visibility
-        menu.classList.toggle("active");
-    
-        // Show and hide icons based on the menu state
-        if (menu.classList.contains("active")) {
-            hamburger.classList.add("hidden");
-            closeIcon.classList.remove("hidden");
-        } else {
-            hamburger.classList.remove("hidden");
-            closeIcon.classList.add("hidden");
-        }
-    }
-</script>
-    
 </body>
 </html>
