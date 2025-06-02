@@ -480,50 +480,6 @@
             border: 1px solid var(--error-color);
         }
 
-        /* Hours and Directions */
-        .additional-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .info-card h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .info-card p {
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        .info-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem auto;
-        }
-
-        .info-icon i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
         /* Map Section */
         .map-section {
             margin-top: 4rem;
@@ -675,11 +631,6 @@
 
             .form-row {
                 grid-template-columns: 1fr;
-            }
-
-            .additional-info {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
             .footer-content {
@@ -993,12 +944,12 @@
             });
         }
 
-        // Form handling with reCAPTCHA
+        // Form handling with improved error handling
         const form = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
         const formMessage = document.getElementById('form-message');
 
-        // REPLACE THIS URL WITH YOUR ACTUAL GOOGLE APPS SCRIPT DEPLOYMENT URL
+        // Your Google Apps Script deployment URL
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxr_M7JwLK0y2myLdlN_nqZo5ziVmqlU8U7oAdPbyZFuCsVscjcf0kVAYBnZVMhzodk/exec';
 
         form.addEventListener('submit', async function(e) {
@@ -1027,22 +978,59 @@
                 formData.append('recaptcha', recaptchaResponse);
                 formData.append('timestamp', new Date().toISOString());
 
-                // Submit to Google Sheets
+                // Submit to Google Apps Script
                 const response = await fetch(scriptURL, {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    mode: 'cors'
                 });
 
-                if (response.ok) {
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                
+                // Try to parse JSON response
+                let responseData;
+                try {
+                    const responseText = await response.text();
+                    console.log('Response text:', responseText);
+                    responseData = JSON.parse(responseText);
+                } catch (parseError) {
+                    console.error('JSON parse error:', parseError);
+                    // If JSON parsing fails but response is ok, assume success
+                    if (response.ok) {
+                        showMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+                        form.reset();
+                        grecaptcha.reset();
+                        return;
+                    } else {
+                        throw new Error('Invalid response format');
+                    }
+                }
+
+                console.log('Parsed response:', responseData);
+
+                // Check response status
+                if (response.ok && responseData.status === 'success') {
                     showMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
                     form.reset();
-                    grecaptcha.reset(); // Reset reCAPTCHA
+                    grecaptcha.reset();
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error(responseData.message || 'Unknown error occurred');
                 }
+
             } catch (error) {
-                console.error('Error:', error);
-                showMessage('Sorry, there was an error sending your message. Please try again or call us directly.', 'error');
+                console.error('Submission error:', error);
+                
+                // Show user-friendly error message
+                if (error.message.includes('reCAPTCHA')) {
+                    showMessage('reCAPTCHA verification failed. Please try again.', 'error');
+                } else if (error.message.includes('required fields')) {
+                    showMessage('Please fill in all required fields.', 'error');
+                } else if (error.message.includes('network') || error.name === 'TypeError') {
+                    showMessage('Network error. Please check your connection and try again.', 'error');
+                } else {
+                    showMessage('Sorry, there was an error sending your message. Please try again or call us directly at (612) 438-7378.', 'error');
+                }
             } finally {
                 // Re-enable submit button
                 submitBtn.disabled = false;
@@ -1054,6 +1042,9 @@
             formMessage.textContent = message;
             formMessage.className = `form-message ${type}`;
             formMessage.style.display = 'block';
+            
+            // Scroll message into view
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             
             // Auto-hide success messages after 5 seconds
             if (type === 'success') {
